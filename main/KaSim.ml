@@ -319,7 +319,7 @@ let () =
                 let env',graph',b'' =
                   Evaluator.get_pause_criteria
                     ~debugMode ~outputs
-                    ~max_sharing:kasim_args.Kasim_args.maxSharing
+                    ~sharing:kasim_args.Kasim_args.sharing
                     ~syntax_version:(cli_args.Run_cli_args.syntaxVersion)
                     contact_map env graph b in
                 let progress = Progress_report.create
@@ -334,7 +334,7 @@ let () =
                 let e', (env',_ as o) =
                   Evaluator.do_interactive_directives
                     ~debugMode ~outputs
-                    ~max_sharing:kasim_args.Kasim_args.maxSharing
+                    ~sharing:kasim_args.Kasim_args.sharing
                     ~syntax_version:cli_args.Run_cli_args.syntaxVersion
                     contact_map env counter graph state e in
                 let () = Outputs.input_modifications
